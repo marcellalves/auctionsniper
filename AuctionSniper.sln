@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionSniper.Test", "AuctionSniper.Test\AuctionSniper.Test.csproj", "{251DD857-3A84-499B-9795-6AED312B9056}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4872006F-7652-494D-8E6B-14CE908B466D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{251DD857-3A84-499B-9795-6AED312B9056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251DD857-3A84-499B-9795-6AED312B9056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251DD857-3A84-499B-9795-6AED312B9056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251DD857-3A84-499B-9795-6AED312B9056}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{251DD857-3A84-499B-9795-6AED312B9056} = {4872006F-7652-494D-8E6B-14CE908B466D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D57FFD3-9B61-4B0B-AEF5-7BFFAA4B583A}
