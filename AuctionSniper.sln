@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionSniper.Test", "AuctionSniper.Test\AuctionSniper.Test.csproj", "{251DD857-3A84-499B-9795-6AED312B9056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuctionSniper.Tests", "AuctionSniper.Tests\AuctionSniper.Tests.csproj", "{251DD857-3A84-499B-9795-6AED312B9056}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4872006F-7652-494D-8E6B-14CE908B466D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EFEC7FCD-BCEF-4D76-913E-161BED47DB43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notas", "notas", "{B6D494B9-C01F-4BDD-8BC9-46A4407550AA}"
+	ProjectSection(SolutionItems) = preProject
+		notas.txt = notas.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
