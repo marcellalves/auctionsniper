@@ -1,0 +1,8 @@
+O que é o AuctionSniper? 
+	É um sistema de leilão on-line, que permite aos usuários iniciarem sessões e darem lances. Cada sessão tem um tempo pré-estabelecido
+	e depois desse tempo, é fechada e o lance mais alto leva o produto leiloado.
+
+Qual a arquitetura da aplicação?
+	Uma interface Web vai ficar ouvindo as notificações do servidor de leilões, com a abertura da sessão e os lances feitos pelos
+	usuários. Esse servidor de leilões ainda precisa ser definido na questão de tecnologias a serem utilizadas. Avaliar: SignalR,
+	OpenFire e HangFire.
