@@ -36,3 +36,12 @@ Configurações do OpenFire:
 			username: admin
 			Admin Email Address: marcell.alves@gmail.com
 			New Password: 420Mn@326
+
+XMPP Client:
+	Estou utilizando o SharpXMPP pois é o único que encontrei até o momento que suporta o ASP.NET Core.
+	https://www.nuget.org/packages/SharpXMPP/
+	https://www.fuget.org/packages/SharpXMPP
+	https://github.com/vitalyster/SharpXMPP
+
+	Exemplos de utilização
+		https://csharp.hotexamples.com/examples/Sharp.Xmpp.Client/XmppClient/-/php-xmppclient-class-examples.html

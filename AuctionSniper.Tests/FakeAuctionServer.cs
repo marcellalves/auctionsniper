@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using SharpXMPP;
 
 namespace AuctionSniper.Tests
 {
     public class FakeAuctionServer
     {
-        private string v;
+        private const string _itemIdAsLogin = "auction-{0}";
+        private const string _auctionResource = "Auction";
+        private const string _xmppHostName = "SQEST284.squadra.com.br";
+        private const string _auctionPassword = "auction";
 
-        public FakeAuctionServer(string v)
+        private readonly string _itemId;
+        private readonly XmppConnection _connection;
+
+        public FakeAuctionServer(string itemId)
         {
-            this.v = v;
+            _itemId = itemId;
         }
-
-        public string ItemId { get; set; }
 
         public Task StartSellingItem()
         {
