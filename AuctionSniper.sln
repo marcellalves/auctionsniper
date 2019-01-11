@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notas", "notas", "{B6D494B9
 		notas.txt = notas.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionSniper.Web", "AuctionSniper.Web\AuctionSniper.Web.csproj", "{69601A95-AA64-419C-92ED-D8A1FE490FCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,12 +26,17 @@ Global
 		{251DD857-3A84-499B-9795-6AED312B9056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{251DD857-3A84-499B-9795-6AED312B9056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{251DD857-3A84-499B-9795-6AED312B9056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69601A95-AA64-419C-92ED-D8A1FE490FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69601A95-AA64-419C-92ED-D8A1FE490FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69601A95-AA64-419C-92ED-D8A1FE490FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69601A95-AA64-419C-92ED-D8A1FE490FCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{251DD857-3A84-499B-9795-6AED312B9056} = {4872006F-7652-494D-8E6B-14CE908B466D}
+		{69601A95-AA64-419C-92ED-D8A1FE490FCD} = {EFEC7FCD-BCEF-4D76-913E-161BED47DB43}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D57FFD3-9B61-4B0B-AEF5-7BFFAA4B583A}

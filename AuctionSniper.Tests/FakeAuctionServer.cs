@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace AuctionSniper.Tests
 {
-    internal class FakeAuctionServer
+    public class FakeAuctionServer
     {
         private string v;
 
@@ -12,22 +12,24 @@ namespace AuctionSniper.Tests
             this.v = v;
         }
 
-        internal Task StartSellingItem()
+        public string ItemId { get; set; }
+
+        public Task StartSellingItem()
         {
             throw new NotImplementedException();
         }
 
-        internal Task HasReceivedJoinRequestFromSniper()
+        public Task HasReceivedJoinRequestFromSniper()
         {
             throw new NotImplementedException();
         }
 
-        internal Task AnnounceClosed()
+        public Task AnnounceClosed()
         {
             throw new NotImplementedException();
         }
 
-        internal void Stop()
+        public void Stop()
         {
             throw new NotImplementedException();
         }

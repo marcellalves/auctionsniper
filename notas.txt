@@ -6,3 +6,33 @@ Qual a arquitetura da aplicação?
 	Uma interface Web vai ficar ouvindo as notificações do servidor de leilões, com a abertura da sessão e os lances feitos pelos
 	usuários. Esse servidor de leilões ainda precisa ser definido na questão de tecnologias a serem utilizadas. Avaliar: SignalR,
 	OpenFire e HangFire.
+
+Configurações do OpenFire:
+
+	Server Settings
+		Below are network settings for this server.
+			XMPP Domain Name: SQEST284.squadra.com.br
+			Server Host Name (FQDN): SQEST284.squadra.com.br
+			Admin Console Port:	9090
+			Secure Admin Console Port: 9091
+			Property Encryption via: Blowfish
+			Property Encryption Key: <vazio>
+	
+	Database Settings
+		Embedded Database 
+		Use an embedded database, powered by HSQLDB. This option requires no external database configuration and is an easy way to get up and 
+		running quickly. However, it does not offer the same level of performance as an external database.
+
+	Profile Settings
+		Choose the user and group system to use with the server.
+			Default
+			Store users and groups in the server database. This is the best option for simple deployments.
+
+	Administrator Account
+		Enter settings for the system administrator account (username of "admin") below. It is important to choose a password for the account 
+		that cannot be easily guessed -- for example, at least eight characters long and containing a mix of letters and numbers. You can 
+		skip this step if you have already setup your admin account. if you skip this step during the new installation, the default password 
+		would be "admin".
+			username: admin
+			Admin Email Address: marcell.alves@gmail.com
+			New Password: 420Mn@326
