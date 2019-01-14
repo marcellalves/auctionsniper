@@ -48,3 +48,5 @@ XMPP Client:
 
 NHamcrest, implementação do Hamcrest para C#:
 	https://github.com/nhamcrest/NHamcrest/wiki
+	
+	
