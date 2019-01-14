@@ -45,3 +45,6 @@ XMPP Client:
 
 	Exemplos de utilização
 		https://csharp.hotexamples.com/examples/Sharp.Xmpp.Client/XmppClient/-/php-xmppclient-class-examples.html
+
+NHamcrest, implementação do Hamcrest para C#:
+	https://github.com/nhamcrest/NHamcrest/wiki
