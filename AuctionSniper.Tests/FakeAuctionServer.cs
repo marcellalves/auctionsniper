@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
 using SharpXMPP;
+using SharpXMPP.XMPP;
+using SharpXMPP.XMPP.Client.Elements;
 
 namespace AuctionSniper.Tests
 {
@@ -12,17 +15,26 @@ namespace AuctionSniper.Tests
         private const string _xmppHostName = "SQEST284.squadra.com.br";
         private const string _auctionPassword = "auction";
 
-        private readonly string _itemId;
-        private readonly XmppConnection _connection;
+        private XmppClient _client;
+        private readonly SingleMessageListener _messageListener = new SingleMessageListener();
+
+        public string ItemId { private set; get; }
 
         public FakeAuctionServer(string itemId)
         {
-            _itemId = itemId;
+            ItemId = itemId;
         }
 
-        public Task StartSellingItem()
+        public void StartSellingItem()
         {
-            throw new NotImplementedException();
+            var jid = new JID(string.Format(_itemIdAsLogin, ItemId))
+            {
+                Domain = _xmppHostName,
+                Resource = _auctionResource
+            };
+            _client = new XmppClient(jid, _auctionPassword);
+            _client.Connect();
+            _client.Message += _messageListener.ProcessMessage;
         }
 
         public Task HasReceivedJoinRequestFromSniper()
