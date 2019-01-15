@@ -49,4 +49,5 @@ XMPP Client:
 NHamcrest, implementação do Hamcrest para C#:
 	https://github.com/nhamcrest/NHamcrest/wiki
 	
-	
+Subir o servidor XMPP com Docker:
+	https://fornever.github.io/Jabber-Net/docker-env.html
