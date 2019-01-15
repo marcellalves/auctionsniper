@@ -15,36 +15,30 @@ namespace AuctionSniper.Tests
         private const string _xmppHostName = "SQEST284.squadra.com.br";
         private const string _auctionPassword = "auction";
 
-        private XmppClient _client;
-        private readonly SingleMessageListener _messageListener = new SingleMessageListener();
+        private readonly SingleMessageListener _messageListener;
 
         public string ItemId { private set; get; }
 
         public FakeAuctionServer(string itemId)
         {
             ItemId = itemId;
+            _messageListener = new SingleMessageListener(string.Format(_itemIdAsLogin, ItemId), _xmppHostName,
+                _auctionPassword, _auctionResource);
         }
 
         public void StartSellingItem()
         {
-            var jid = new JID(string.Format(_itemIdAsLogin, ItemId))
-            {
-                Domain = _xmppHostName,
-                Resource = _auctionResource
-            };
-            _client = new XmppClient(jid, _auctionPassword);
-            _client.Connect();
-            _client.Message += _messageListener.ProcessMessage;
+            _messageListener.Connect();
         }
 
-        public Task HasReceivedJoinRequestFromSniper()
+        public void HasReceivedJoinRequestFromSniper()
         {
-            throw new NotImplementedException();
+            _messageListener.ReceivesAMessage();
         }
 
-        public Task AnnounceClosed()
+        public void AnnounceClosed()
         {
-            throw new NotImplementedException();
+            _messageListener.SendMessage(new XMPPMessage());
         }
 
         public void Stop()
