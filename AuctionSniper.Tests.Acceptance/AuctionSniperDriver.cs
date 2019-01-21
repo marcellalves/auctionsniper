@@ -11,7 +11,7 @@ namespace AuctionSniper.Tests.Acceptance
 
         public void ShowsSniperStatus(string expectedStatus)
         {
-            if (!_main.SniperStatus.Equals(expectedStatus))
+            if (!Main.SniperStatus.Equals(expectedStatus))
             {
                 throw new Exception("Expected status does not match AuctionStatus label.");
             }

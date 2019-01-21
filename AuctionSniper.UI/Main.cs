@@ -1,20 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace AuctionSniper.UI
 {
-    public partial class Main : Form
+    public class Main : Form, IPickerMainView
     {
+        private readonly Label _lblStatus;
+
         public Main()
         {
-            InitializeComponent();
+            _lblStatus = new Label();
+            Controls.Add(_lblStatus);
         }
+
+        public string SniperStatus
+        {
+            get => _lblStatus.Text;
+            set => _lblStatus.Text = value;
+        }
+
+        public string WindowTitle
+        {
+            get => Text; 
+            set => Text = value;
+        }
+        
     }
 }

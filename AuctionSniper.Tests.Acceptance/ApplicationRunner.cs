@@ -1,11 +1,11 @@
-﻿using AuctionSniper.UI;
-using System;
+﻿using AuctionSniper.Domain;
+using AuctionSniper.UI;
 
 namespace AuctionSniper.Tests.Acceptance
 {
     public class ApplicationRunner
     {
-        private const string SniperXmppId = "sniper@localhost/Auction";
+        public const string SniperXmppId = "sniper@localhost/Auction";
         private readonly string SniperPassword = "sniper";
         private AuctionSniperDriver _driver;
 

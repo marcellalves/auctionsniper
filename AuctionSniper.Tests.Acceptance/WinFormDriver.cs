@@ -1,22 +1,42 @@
-﻿using System;
+﻿using System.Threading;
+using System.Windows.Forms;
 using AuctionSniper.UI;
 
 namespace AuctionSniper.Tests.Acceptance
 {
     public class WinFormDriver
     {
-        private Main main;
-        private int sleepMilliseconds;
+        protected Thread _thread;
+        private readonly int _sleepMilliseconds;
 
         public WinFormDriver(Main main, int sleepMilliseconds)
         {
-            this.main = main;
-            this.sleepMilliseconds = sleepMilliseconds;
+            Main = main;
+            _sleepMilliseconds = sleepMilliseconds;
         }
 
-        internal void QuitApplication()
+        public Main Main { get; }
+
+        public void LaunchApplicationInItsOwnThread()
         {
-            throw new NotImplementedException();
+            _thread = new Thread(new ParameterizedThreadStart(Launch));
+            _thread.Start(Main);
+            Main.Show();
+            Main.BringToFront();
+            Main.Refresh();
+        }
+
+        public void QuitApplication()
+        {
+            Thread.Sleep(_sleepMilliseconds);
+            Main.Close();
+            Application.Exit();
+        }
+
+        private static void Launch(object input)
+        {
+            var form = (Form) input;
+            Application.Run(form);
         }
     }
 }

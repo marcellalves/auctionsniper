@@ -47,20 +47,29 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationRunner.cs" />
     <Compile Include="AuctionSniperDriver.cs" />
+    <Compile Include="AuctionSniperEndToEndTest.cs" />
     <Compile Include="FakeAuctionServer.cs" />
-    <Compile Include="MainPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharedConstants.cs" />
     <Compile Include="WinFormDriver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AuctionSniper.Domain\AuctionSniper.Domain.csproj">
+      <Project>{ee45db34-6f3c-4962-9ec3-20c2eafdfd72}</Project>
+      <Name>AuctionSniper.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuctionSniper.Fakes.XmppServer\AuctionSniper.Fakes.XmppServer.csproj">
+      <Project>{3272b1fb-21a4-4fd3-b29a-cae72217d903}</Project>
+      <Name>AuctionSniper.Fakes.XmppServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AuctionSniper.UI\AuctionSniper.UI.csproj">
       <Project>{653ED958-6067-47D3-803E-533952765E0B}</Project>
       <Name>AuctionSniper.UI</Name>
