@@ -2,6 +2,7 @@
 
 namespace AuctionSniper.Tests.Acceptance
 {
+    [TestClass]
     public class AuctionSniperEndToEndTest
     {
         private ApplicationRunner _application;
