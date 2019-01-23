@@ -4,13 +4,13 @@ namespace AuctionSniper.Domain
 {
     public class AuctionMessageTranslator : IMessageListener
     {
-        private object userName;
-        private Domain.AuctionSniper auctionSniper;
+        private readonly  string _sniperId;
+        private readonly IAuctionEventListener _auctionEventListener;
 
-        public AuctionMessageTranslator(object userName, AuctionSniper auctionSniper)
+        public AuctionMessageTranslator(string sniperId, IAuctionEventListener auctionEventListener)
         {
-            this.userName = userName;
-            this.auctionSniper = auctionSniper;
+            _sniperId = sniperId;
+            _auctionEventListener = auctionEventListener;
         }
 
         public Message Message { get; set; }

@@ -1,26 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AuctionSniper.Fakes.XmppServer
 {
     public class XmppConnection
     {
+        private static readonly IList<XmppConnection> _xmppConnections = new List<XmppConnection>();
+
+        public XmppConnection(string xmppHostName)
+        {
+            XmppHostName = xmppHostName;
+            ChatManager = new ChatManager(this);
+        }
+
         public ChatManager ChatManager { get; set; }
-        public object UserName { get; internal set; }
+        public string UserName { get; private set; }
         public object ServiceName { get; set; }
 
-        public static XmppConnection CreateXmppConnection(string hostName)
+        public static XmppConnection CreateXmppConnection(string xmppHostName)
         {
-            throw new NotImplementedException();
+            foreach (XmppConnection xmppConnection in _xmppConnections)
+            {
+                if(xmppConnection.XmppHostName == xmppHostName)
+                {
+                    return xmppConnection;
+                }
+            }
+
+            var newConnection = new XmppConnection(xmppHostName);
+            _xmppConnections.Add(newConnection);
+            return newConnection;
         }
+
+        public string XmppHostName { get; private set; }
 
         public void Connect()
         {
-            throw new NotImplementedException();
         }
 
-        public void Login(string userName, string password, string auctionResource)
+        public void Login(string userName, string auctionPassword, string auctionResource)
         {
-            throw new NotImplementedException();
+            UserName = userName;
         }
     }
 }

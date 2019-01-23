@@ -17,6 +17,7 @@ namespace AuctionSniper.Tests.Acceptance
         public FakeAuctionServer(string itemId)
         {
             ItemId = itemId;
+            _connection = XmppConnection.CreateXmppConnection(SharedConstants.XMPP_HOSTNAME);
         }
 
         public string ItemId { get; }
