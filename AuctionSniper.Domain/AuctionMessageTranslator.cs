@@ -1,4 +1,5 @@
-﻿using AuctionSniper.Fakes.XmppServer;
+﻿using System;
+using AuctionSniper.Fakes.XmppServer;
 
 namespace AuctionSniper.Domain
 {
@@ -17,7 +18,36 @@ namespace AuctionSniper.Domain
         public event IMessageListenerEventHandler ProcessMessage;
         public void InvokeProcessMessage(MessageListenerEventArgs mle)
         {
-            throw new System.NotImplementedException();
+            if (MessagePairedValues(mle))
+            {
+                var auctionEvent = AuctionEvent.From(mle.Message.Body);
+
+                switch (auctionEvent.Type)
+                {
+                    case "CLOSE":
+                        _auctionEventListener.AuctionClosed();
+                        break;
+                    case "PRICE":
+                        _auctionEventListener.CurrentPrice(auctionEvent.CurrentPrice, auctionEvent.Increment, auctionEvent.IsFrom(_sniperId));
+                        break;
+                    default:
+                        string messageDetail =
+                            $"Message type: {auctionEvent.Type} not handled, from message {mle.Message.Body}";
+                        throw new Exception(messageDetail);
+                }
+            }
+            else
+            {
+                if (mle.Message.Body.Contains(SharedConstants.STATUS_JOINING))
+                {
+                    _auctionEventListener.JoiningAuction();
+                }
+            }
+        }
+
+        private bool MessagePairedValues(MessageListenerEventArgs mle)
+        {
+            throw new NotImplementedException();
         }
     }
 }

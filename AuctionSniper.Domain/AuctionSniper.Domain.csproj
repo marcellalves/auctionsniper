@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuctionEvent.cs" />
     <Compile Include="AuctionMessageTranslator.cs" />
     <Compile Include="AuctionSniper.cs" />
     <Compile Include="Enums.cs" />

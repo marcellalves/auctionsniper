@@ -31,7 +31,15 @@ namespace AuctionSniper.Tests.Acceptance
 
         private void ChatManager_ChatCreated(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentChat = ((ChatManager) sender).CurrentChat;
+            _currentChat.AddMessageListener(_singleMessageListener);
+            _singleMessageListener.ProcessMessage += MessageListenerProcessMessage;
+        }
+
+        private void MessageListenerProcessMessage(object sender, MessageListenerEventArgs mle)
+        {
+            var messageListener = (IMessageListener) sender;
+            messageListener.Message = mle.Message;
         }
 
         public void HasReceivedJoinRequestFromSniper(string sniperId)

@@ -1,19 +1,20 @@
 ﻿using AuctionSniper.Domain;
+using AuctionSniper.Fakes.XmppServer;
 
 namespace AuctionSniper.UI
 {
     public class XmppAuction : IAuction
     {
-        private object chat;
+        private readonly Chat _chat;
 
-        public XmppAuction(object chat)
+        public XmppAuction(Chat chat)
         {
-            this.chat = chat;
+            _chat = chat;
         }
 
         public void Join()
         {
-            throw new System.NotImplementedException();
+            _chat.SendMessage(SharedConstants.STATUS_JOINING);
         }
     }
 }

@@ -10,20 +10,28 @@ namespace AuctionSniper.Fakes.XmppServer
 
         public Chat(string auctionId, string participant)
         {
+            MessageListeners = new List<IMessageListener>();
             this.auctionId = auctionId;
             this.participant = participant;
         }
 
         public IList<IMessageListener> MessageListeners { get; }
+        public Message Message { get; private set; }
 
         public void AddMessageListener(IMessageListener messageListener)
         {
             MessageListeners.Add(messageListener);
         }
 
-        public void SendMessage(string v)
+        public void SendMessage(string messageBody)
         {
-            throw new NotImplementedException();
+            Message = new Message(this) { Body = messageBody };
+
+            foreach (IMessageListener messageListener in MessageListeners)
+            {
+                var mle = new MessageListenerEventArgs(Message);
+                messageListener.InvokeProcessMessage(mle);
+            }
         }
     }
 }

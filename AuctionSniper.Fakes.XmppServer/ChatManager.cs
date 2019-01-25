@@ -9,6 +9,7 @@ namespace AuctionSniper.Fakes.XmppServer
 
         public ChatManager(XmppConnection xmppConnection)
         {
+            Chats = new List<Chat>();
             XmppConnection = xmppConnection;
         }
 
