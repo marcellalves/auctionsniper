@@ -4,36 +4,36 @@ namespace AuctionSniper.UI
 {
     public class SniperStateDisplayer : ISniperListener
     {
-        private MainPresenter mainPresenter;
+        private MainPresenter _mainPresenter;
 
         public SniperStateDisplayer(MainPresenter mainPresenter)
         {
-            this.mainPresenter = mainPresenter;
+            _mainPresenter = mainPresenter;
         }
 
         public void SniperLost()
         {
-            throw new System.NotImplementedException();
+            _mainPresenter.PickerMainview.SniperStatus = SharedConstants.STATUS_LOST;
         }
 
         public void SniperBidding()
         {
-            throw new System.NotImplementedException();
+            _mainPresenter.PickerMainview.SniperStatus = SharedConstants.STATUS_BIDDING;
         }
 
         public void SniperJoining()
         {
-            throw new System.NotImplementedException();
+            _mainPresenter.PickerMainview.SniperStatus = SharedConstants.STATUS_JOINING;
         }
 
         public void SniperWinning()
         {
-            throw new System.NotImplementedException();
+            _mainPresenter.PickerMainview.SniperStatus = SharedConstants.STATUS_WINNING;
         }
 
         public void SniperWon()
         {
-            throw new System.NotImplementedException();
+            _mainPresenter.PickerMainview.SniperStatus = SharedConstants.STATUS_WON;
         }
     }
 }

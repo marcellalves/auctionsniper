@@ -18,7 +18,7 @@ namespace AuctionSniper.Domain
         public event IMessageListenerEventHandler ProcessMessage;
         public void InvokeProcessMessage(MessageListenerEventArgs mle)
         {
-            if (MessagePairedValues(mle))
+            if (MessageHasPairedValues(mle))
             {
                 var auctionEvent = AuctionEvent.From(mle.Message.Body);
 
@@ -45,9 +45,9 @@ namespace AuctionSniper.Domain
             }
         }
 
-        private bool MessagePairedValues(MessageListenerEventArgs mle)
+        private bool MessageHasPairedValues(MessageListenerEventArgs mle)
         {
-            throw new NotImplementedException();
+            return mle.Message.Body.Contains(";");
         }
     }
 }

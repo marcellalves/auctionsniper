@@ -2,12 +2,13 @@
 {
     public class AuctionSniper : IAuctionEventListener
     {
-        private IAuction auction;
-        private ISniperListener sniperStateDisplayer;
+        private IAuction _auction;
+        private ISniperListener _sniperListener;
 
-        public AuctionSniper(IAuction auction, ISniperListener sniperStateDisplayer)
+        public AuctionSniper(IAuction auction, ISniperListener sniperListener)
         {
-            this.auction = auction;
+            _auction = auction;
+            _sniperListener = sniperListener;
         }
 
         public void AuctionClosed()
@@ -22,7 +23,7 @@
 
         public void JoiningAuction()
         {
-            throw new System.NotImplementedException();
+            _sniperListener.SniperJoining();
         }
     }
 }
