@@ -4,6 +4,7 @@
     {
         private IAuction _auction;
         private ISniperListener _sniperListener;
+        private bool _isWinning;
 
         public AuctionSniper(IAuction auction, ISniperListener sniperListener)
         {
@@ -13,7 +14,14 @@
 
         public void AuctionClosed()
         {
-            throw new System.NotImplementedException();
+            if (_isWinning)
+            {
+                _sniperListener.SniperWon();
+            }
+            else
+            {
+                _sniperListener.SniperLost();
+            }
         }
 
         public void CurrentPrice(int currentPrice, int increment, Enums.PriceSource fromOtherBidder)
