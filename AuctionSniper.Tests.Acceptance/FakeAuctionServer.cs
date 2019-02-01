@@ -1,6 +1,6 @@
-﻿using System;
-using AuctionSniper.Domain;
+﻿using AuctionSniper.Domain;
 using AuctionSniper.Fakes.XmppServer;
+using System;
 
 namespace AuctionSniper.Tests.Acceptance
 {
@@ -31,14 +31,14 @@ namespace AuctionSniper.Tests.Acceptance
 
         private void ChatManager_ChatCreated(object sender, EventArgs e)
         {
-            _currentChat = ((ChatManager) sender).CurrentChat;
+            _currentChat = ((ChatManager)sender).CurrentChat;
             _currentChat.AddMessageListener(_singleMessageListener);
             _singleMessageListener.ProcessMessage += MessageListenerProcessMessage;
         }
 
         private void MessageListenerProcessMessage(object sender, MessageListenerEventArgs mle)
         {
-            var messageListener = (IMessageListener) sender;
+            var messageListener = (IMessageListener)sender;
             messageListener.Message = mle.Message;
         }
 
@@ -55,6 +55,16 @@ namespace AuctionSniper.Tests.Acceptance
         private void ReceivesAMessage()
         {
 
+        }
+
+        public void ReportPrice(int i, int i1, string otherBidder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void HasReceivedBid(int i, string sniperLocalhostAuction)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -22,5 +22,10 @@ namespace AuctionSniper.Tests.Acceptance
         {
             _driver?.ShowsSniperStatus(SharedConstants.STATUS_LOST);
         }
+
+        public void HasShownSniperIsBidding()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
