@@ -6,15 +6,15 @@ namespace AuctionSniper.Fakes.XmppServer
     public class Chat
     {
         private string auctionId;
-        private string participant;
 
         public Chat(string auctionId, string participant)
         {
             MessageListeners = new List<IMessageListener>();
             this.auctionId = auctionId;
-            this.participant = participant;
+            Participant = participant;
         }
 
+        public string Participant { get; set; }
         public IList<IMessageListener> MessageListeners { get; }
         public Message Message { get; private set; }
 

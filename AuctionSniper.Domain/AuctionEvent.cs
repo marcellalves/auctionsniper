@@ -53,7 +53,8 @@ namespace AuctionSniper.Domain
 
         public Enums.PriceSource IsFrom(string sniperId)
         {
-            throw new System.NotImplementedException();
+            var bidderName = Get("Bidder");
+            return sniperId.Equals(bidderName) ? Enums.PriceSource.FromSniper : Enums.PriceSource.FromOtherBidder;
         }
     }
 }

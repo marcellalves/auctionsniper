@@ -1,5 +1,6 @@
 ﻿using AuctionSniper.Domain;
 using AuctionSniper.Fakes.XmppServer;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace AuctionSniper.Tests.Acceptance
@@ -44,7 +45,7 @@ namespace AuctionSniper.Tests.Acceptance
 
         public void HasReceivedJoinRequestFromSniper(string sniperId)
         {
-            ReceivesAMessage();
+            ReceivesAMessageMatching(sniperId, new MatcherCustom(MatcherCustom.MatchVia.EqualTo, SharedConstants.STATUS_JOINING));
         }
 
         public void AnnouncesClosed()
@@ -57,14 +58,20 @@ namespace AuctionSniper.Tests.Acceptance
 
         }
 
-        public void ReportPrice(int i, int i1, string otherBidder)
+        public void ReportPrice(int price, int increment, string bidder)
         {
-            throw new NotImplementedException();
+            _currentChat.SendMessage($"SOL Version: 1.1; Event: PRICE; CurrentPrice: {price}; Increment: {increment}; Bidder: {bidder}");
         }
 
-        public void HasReceivedBid(int i, string sniperLocalhostAuction)
+        public void HasReceivedBid(int bid, string sniperId)
         {
-            throw new NotImplementedException();
+            ReceivesAMessageMatching(sniperId, new MatcherCustom(MatcherCustom.MatchVia.EqualTo, $"amount{SharedConstants.BID_COMMAND_FORMAT}"));
+        }
+
+        private void ReceivesAMessageMatching(string sniperId, MatcherCustom matcher)
+        {
+            _singleMessageListener.ReceivesAMessage(matcher);
+            Assert.AreEqual(_singleMessageListener.Message.Chat.Participant, sniperId);
         }
     }
 }

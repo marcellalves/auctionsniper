@@ -12,5 +12,6 @@ namespace AuctionSniper.Domain
         public const string STATUS_WON = "won";
 
         public const string MAIN_WINDOW_TITLE = "Auction Sniper Main";
+        public const string BID_COMMAND_FORMAT = "BID_NOW";
     }
 }

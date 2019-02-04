@@ -24,9 +24,19 @@
             }
         }
 
-        public void CurrentPrice(int currentPrice, int increment, Enums.PriceSource fromOtherBidder)
+        public void CurrentPrice(int currentPrice, int increment, Enums.PriceSource priceSource)
         {
-            throw new System.NotImplementedException();
+            _isWinning = priceSource == Enums.PriceSource.FromSniper;
+
+            if (_isWinning)
+            {
+                _sniperListener.SniperWinning();
+            }
+            else
+            {
+                _auction.Bid(currentPrice + increment);
+                _sniperListener.SniperBidding();
+            }
         }
 
         public void JoiningAuction()

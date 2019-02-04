@@ -12,6 +12,11 @@ namespace AuctionSniper.UI
             _chat = chat;
         }
 
+        public void Bid(int bidAmount)
+        {
+            _chat.SendMessage($"amount{SharedConstants.BID_COMMAND_FORMAT}");
+        }
+
         public void Join()
         {
             _chat.SendMessage(SharedConstants.STATUS_JOINING);
